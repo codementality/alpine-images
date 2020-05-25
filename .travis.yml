@@ -1,0 +1,20 @@
+sudo: required
+dist: bionic
+
+services:
+  - docker
+
+notifications:
+  email:
+    - lisa@codementality.com
+  on_success: change
+  on_failure: always
+
+before_install:
+ - sudo apt-get install jq
+jobs:
+  include:
+    - stage: build php7.2
+      script: ./checktag.sh 3.9
+    - stage: build php7.3
+      script: ./checktag.sh 3.11
