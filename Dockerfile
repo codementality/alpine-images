@@ -58,6 +58,11 @@ echo smtputf8_enable = no >> /etc/postfix/main.cf && \
 cd /usr/local && \
 curl -sS https://getcomposer.org/installer|php && \
 /bin/mv composer.phar bin/composer && \
+## Installing Drush Launcher
+curl -o https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar && \
+/bin/mv drush.phar bin/drush && \
+/bin/chmod a+x bin/drush && \
+## Create PHP user
 deluser php && \
 adduser -h /var/www/html -s /bin/sh -D -H -u 1971 php && \
 ## Clean up and trim container

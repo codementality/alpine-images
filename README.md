@@ -50,7 +50,7 @@ The following PHP modules are included in these builds:
 * zip
 * zlib
 
-In addition, Composer is also installed.
+In addition, Composer is also installed, as is the Drush Launcher.  Make sure you include drush as part of your project.
 
 To use, you will need to mount some configuration files into the container.
 
