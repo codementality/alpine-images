@@ -59,7 +59,7 @@ cd /usr/local && \
 curl -sS https://getcomposer.org/installer|php && \
 /bin/mv composer.phar bin/composer && \
 ## Installing Drush Launcher
-curl -o https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar && \
+curl -O https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar && \
 /bin/mv drush.phar bin/drush && \
 /bin/chmod a+x bin/drush && \
 ## Create PHP user
