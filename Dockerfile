@@ -7,11 +7,10 @@ ARG PHPV2
 
 MAINTAINER Lisa Ridley "lisa@codementality.com"
 
-LABEL BUILDDATE $(date '+%Y-%m-%d')
-
 ADD healthcheck.sh /healthcheck.sh
 
-RUN STARTTIME=$(date "+%s") && \
+RUN BUILDDATE=$(date '+%Y-%m-%d') && \
+STARTTIME=$(date "+%s") && \
 apk add --no-cache curl curl-dev fcgi mysql-client postfix && \
 apk update --no-cache && apk upgrade --no-cache && \
 apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community gnu-libiconv && \

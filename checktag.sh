@@ -31,7 +31,7 @@ PHPV1=${PHPV2%.*}
 PHPV0=${PHPV2%%.*}
 
 # check to see if the patch version tag exists, if yes, exit without building image
-if docker_tag_exists codementality/alpine-php $PHPV3; then
+if docker_tag_exists codementality/alpine-php $PHPV2; then
 	echo "Tag $PHPV3 exists"
     exit 0
 fi
@@ -50,8 +50,8 @@ docker build -t php \
 	--build-arg PHPV2=${PHPV2} \
 	./
 
-docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 docker tag php codementality/alpine-php:${PHPV2}
-docker push codementality/alpine-php:${PHPV2}
 docker tag php codementality/alpine-php:${PHPV1}
+docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+docker push codementality/alpine-php:${PHPV2}
 docker push codementality/alpine-php:${PHPV1}
