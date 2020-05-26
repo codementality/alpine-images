@@ -50,6 +50,8 @@ The following PHP modules are included in these builds:
 * zip
 * zlib
 
+In addition, Composer is also installed.
+
 To use, you will need to mount some configuration files into the container.
 
 * Error logs:         volume mount to /var/log/php7
