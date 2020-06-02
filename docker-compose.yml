@@ -8,15 +8,9 @@ services:
     volumes:
       - ./docker:/etc/php7:ro
       - ./:/var/log/php7
-      #- $FULCRUM_HOME_DC/fulcrum/etc/fulcrum/php/fulcrum.php:/fulcrum.php:ro
-      #- $FULCRUM_HOME_DC/fulcrum/etc/fulcrum/php/fulcrum.php:/fulcrum/fulcrum.php:ro
-      #- $FULCRUM_HOME_DC/fulcrum/var/fulcrum/private_files:/private
       - ./:/var/www/html
     ports:
       - "9072:9000"
-#    dns: $FULCRUM_HOST_IP
-#    cap_add:
-#      - SYS_PTRACE
   php7.3:
     container_name: php7.3
     image: php7.3
@@ -24,13 +18,7 @@ services:
     volumes:
       - ./docker:/etc/php7:ro
       - ./:/var/log/php7
-      #- $FULCRUM_HOME_DC/fulcrum/etc/fulcrum/php/fulcrum.php:/fulcrum.php:ro
-      #- $FULCRUM_HOME_DC/fulcrum/etc/fulcrum/php/fulcrum.php:/fulcrum/fulcrum.php:ro
-      #- $FULCRUM_HOME_DC/fulcrum/var/fulcrum/private_files:/private
       - ./:/var/www/html
     ports:
       - "9073:9000"
-#    dns: $FULCRUM_HOST_IP
-#    cap_add:
-#      - SYS_PTRACE
 

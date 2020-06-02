@@ -48,7 +48,7 @@ su - abuild -c "cd aports/community/php$PHPV0-pecl-redis     && abuild checksum 
 su - abuild -c "cd aports/community/php$PHPV0-pecl-xdebug    && abuild checksum && abuild -r"  && \
 ## Installing PHP packages
 apk add --allow-untrusted $(find $PGKDIR|egrep "php$PHPV0-(pecl-)?($PKGS)-.*.apk") && \
-adduser -h /var/www/html -s /sbin/nologin -D -H -u 1971 php && \
+adduser -h /var/www/html -s /sbin/nologin -D -H -u 501 php && \
 chown -R postfix  /var/spool/postfix && \
 chgrp -R postdrop /var/spool/postfix/public /var/spool/postfix/maildrop && \
 chown -R root     /var/spool/postfix/pid && \
@@ -64,7 +64,7 @@ curl -O https://github.com/drush-ops/drush-launcher/releases/latest/download/dru
 /bin/chmod a+x bin/drush && \
 ## Create PHP user
 deluser php && \
-adduser -h /var/www/html -s /bin/sh -D -H -u 1971 php && \
+adduser -h /var/www/html -s /bin/sh -D -H -u 501 php && \
 ## Clean up and trim container
 find /bin /lib /sbin /usr/bin /usr/lib /usr/sbin -type f -exec strip -v {} \; && \
 apk del php-deps gen-deps && \
@@ -75,7 +75,7 @@ rm -vrf /var/cache/apk/* /var/cache/distfiles/* mysql_waitpid mysqlimport mysqls
 ## Finished
 echo "Elapsed: $(expr $(date "+%s") - $STARTTIME) seconds"
 
-USER php
+#USER php
 
 ENV COLUMNS 100
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php-fpm7

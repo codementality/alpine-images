@@ -15,6 +15,10 @@ before_install:
 jobs:
   include:
     - stage: build php7.2
-      script: ./checktag.sh 3.9
+      script:
+        - cd ./php
+        - ./checktag.sh 3.9
     - stage: build php7.3
-      script: ./checktag.sh 3.11
+      script:
+        - cd ./php
+        - ./checktag.sh 3.11

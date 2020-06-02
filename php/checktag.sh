@@ -50,8 +50,8 @@ docker build -t php \
 	--build-arg PHPV2=${PHPV2} \
 	./
 
-docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+#docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 docker tag php codementality/alpine-php:${PHPV2}
-docker push codementality/alpine-php:${PHPV2}
+#docker push codementality/alpine-php:${PHPV2}
 docker tag php codementality/alpine-php:${PHPV1}
-docker push codementality/alpine-php:${PHPV1}
+#docker push codementality/alpine-php:${PHPV1}
