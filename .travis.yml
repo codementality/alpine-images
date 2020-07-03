@@ -25,5 +25,5 @@ jobs:
     - stage: build php7.4
       script:
         - cd ./php
-        - ./checktag.sh 20200626
+        - ./checktag.sh 20200626 master
 

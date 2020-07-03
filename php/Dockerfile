@@ -11,7 +11,7 @@ ADD healthcheck.sh /healthcheck.sh
 
 RUN BUILDDATE=$(date '+%Y-%m-%d') && \
 STARTTIME=$(date "+%s") && \
-apk add --no-cache curl curl-dev fcgi mysql-client postfix && \
+apk add --no-cache sudo curl curl-dev fcgi mysql-client postfix && \
 apk update --no-cache && apk upgrade --no-cache && \
 apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community gnu-libiconv && \
 apk add --no-cache --virtual gen-deps alpine-sdk autoconf binutils libbz2 libpcre16 libpcre32 \
@@ -25,6 +25,7 @@ PKGS="$PKGS1|$PKGS2|$PKGS3" && \
 ## Beginning general installation
 adduser -D abuild -G abuild -s /bin/sh && \
 mkdir -p /var/cache/distfiles && \
+chmod a+w /var/cache/distfiles && \
 chmod a+w /var/cache/distfiles && \
 echo "abuild ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abuild && \
 su - abuild -c "git clone -v --depth 1 --single-branch --branch \
@@ -75,7 +76,7 @@ rm -vrf /var/cache/apk/* /var/cache/distfiles/* mysql_waitpid mysqlimport mysqls
 ## Finished
 echo "Elapsed: $(expr $(date "+%s") - $STARTTIME) seconds"
 
-#USER php
+USER php
 
 ENV COLUMNS 100
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php-fpm7
