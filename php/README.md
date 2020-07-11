@@ -4,6 +4,7 @@
 
 * PHP 7.2
 * PHP 7.3
+* PHP 7.4
 
 The following PHP modules are included in these builds:
 
